@@ -6,10 +6,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
+import java.util.Random;
 
 public class Controller implements Initializable {
 
@@ -43,7 +45,13 @@ public class Controller implements Initializable {
     @FXML
     private Text winnerText;
 
+    @FXML
+    private Text scorebordText;
+
     private int playerTurn = 0;
+    private int p1 = 0;
+    private int p2 = 0;
+    Random rand = new Random();
 
     ArrayList<Button> buttons;
 
@@ -62,12 +70,37 @@ public class Controller implements Initializable {
     void restartGame(ActionEvent event) {
         buttons.forEach(this::resetButton);
         winnerText.setText("Tic-Tac-Toe");
+        scorebordText.setText("0 - 0");
+
     }
 
     public void resetButton(Button button){
         button.setDisable(false);
         button.setText("");
     }
+
+    @FXML
+    void nextTurn(ActionEvent event) {
+        buttons.forEach(this::resetButton);
+        winnerText.setText("Tic-Tac-Toe");
+        scorebordText.setText(p1 + " " + "-" + " " + p2);
+    }
+
+    @FXML
+    void AITurn(ActionEvent event) {
+        int n = rand.nextInt(9);
+        n += 1;
+
+
+
+    }
+
+    private void AITurnButton(Button button) {
+        button.setDisable(false);
+        button.setText("");
+    }
+
+
 
     private void setupButton(Button button) {
         button.setOnMouseClicked(mouseEvent -> {
@@ -104,12 +137,16 @@ public class Controller implements Initializable {
             //X winner
             if (line.equals("XXX")) {
                 winnerText.setText("P1 won!");
+                p1++;
             }
 
             //O winner
-            else if (line.equals("OOO")) {
+            if (line.equals("OOO")) {
                 winnerText.setText("P2 won!");
+                p2++;
             }
+            //draw
+
         }
     }
 }

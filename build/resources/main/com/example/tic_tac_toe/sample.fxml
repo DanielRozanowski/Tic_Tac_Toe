@@ -22,11 +22,14 @@
                 <Button fx:id="button9" layoutX="85.0" layoutY="160.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" />
             </children>
         </FlowPane>
-        <Text fx:id="winnerText" layoutX="182.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tic-Tac-Toe" textAlignment="CENTER" wrappingWidth="237.9443359375">
+        <Text fx:id="winnerText" layoutX="10.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tic-Tac-Toe" textAlignment="CENTER" wrappingWidth="237.9443359375">
+        <Text fx:id="scorebordText" layoutX="182.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 - 0" textAlignment="CENTER" wrappingWidth="237.9443359375">
             <font>
-                <Font size="39.0" />
+                <Font size="15.0" />
             </font>
         </Text>
-        <Button layoutX="274.0" layoutY="361.0" mnemonicParsing="false" onAction="#restartGame" text="Try Again" />
+        <Button layoutX="274.0" layoutY="361.0" mnemonicParsing="false" onAction="#restartGame" text="Restart" />
+        <Button layoutX="10.0" layoutY="361.0" mnemonicParsing="false" onAction="#nextTurn" text="next turn"/>
+        <Button layoutX="360.0" layoutY="361.0" mnemonicParsing="false" onAction="#AITurn" text="AI turn"/>
     </children>
 </AnchorPane>
